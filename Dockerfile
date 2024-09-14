@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 python:3.8 as build
+FROM python:3.12
 
 RUN apt update -y && \
     apt install -y build-essential libpq-dev && \
