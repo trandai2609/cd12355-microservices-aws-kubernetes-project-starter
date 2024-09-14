@@ -2,7 +2,7 @@ FROM python:3.12.3
 
 WORKDIR /app
 
-COPY . .
+COPY analytics .
 
 RUN apt update -y
 RUN apt install -y build-essential libpq-dev
