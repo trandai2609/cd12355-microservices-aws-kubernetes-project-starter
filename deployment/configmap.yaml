@@ -14,4 +14,4 @@ metadata:
   name: mysecret
 type: Opaque
 data:
-  POSTGRES_PASSWORD: "bXlwYXNzd29yZA=="
+  POSTGRES_PASSWORD: bXlwYXNzd29yZA==
