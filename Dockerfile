@@ -1,6 +1,5 @@
 FROM --platform=linux/amd64 python:3.12 AS build
 
-RUN apt-get update 
 
 WORKDIR /usr/src/app
 
