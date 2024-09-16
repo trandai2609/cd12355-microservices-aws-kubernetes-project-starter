@@ -19,4 +19,4 @@ ENV DB_PASSWORD=mypassword
 
 EXPOSE 5153
 
-CMD ["python3", "app.py"]
+CMD ["python", "app.py"]
