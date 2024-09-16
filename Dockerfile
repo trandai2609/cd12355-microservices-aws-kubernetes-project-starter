@@ -1,5 +1,4 @@
-FROM python:3.9-slim-arm64
-
+FROM python:3.12
 RUN apt update -y && \
     apt install -y build-essential libpq-dev && \
     pip install --upgrade pip setuptools wheel
