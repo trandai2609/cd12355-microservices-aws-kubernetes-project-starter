@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: coworking
-        image: 514551282689.dkr.ecr.us-east-1.amazonaws.com/daitv01/coworking:0.01
+        image: 514551282689.dkr.ecr.us-east-1.amazonaws.com/daitv01/coworking:0.02
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -46,11 +46,11 @@ spec:
           timeoutSeconds: 5
         envFrom:
         - configMapRef:
-            name: myconfigmap
+            name: configmap
         env:
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysecret
-              key: POSTGRES_PASSWORD
+              name: database-secret
+              key: DB_PASSWORD
       restartPolicy: Always
