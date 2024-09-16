@@ -52,5 +52,5 @@ spec:
           valueFrom:
             secretKeyRef:
               name: mysecret
-              key: DB_PASSWORD
+              key: POSTGRES_PASSWORD
       restartPolicy: Always
