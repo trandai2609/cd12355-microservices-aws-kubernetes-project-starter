@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64 python:3.8-slim-buster as build
+FROM python:3.8
 
 RUN apt update -y 
 RUN apt install -y build-essential libpq-dev
