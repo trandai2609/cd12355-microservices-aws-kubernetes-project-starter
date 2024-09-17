@@ -31,7 +31,7 @@ spec:
       containers:
       - name: coworking
         image: 514551282689.dkr.ecr.us-east-1.amazonaws.com/daitv01/coworking:0.02
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         livenessProbe:
           httpGet:
             path: /health_check
@@ -51,6 +51,6 @@ spec:
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: database-secret
+              name: mysecret
               key: DB_PASSWORD
       restartPolicy: Always
