@@ -1,0 +1,22 @@
+Name:                     coworking
+Namespace:                default
+Labels:                   <none>
+Annotations:              <none>
+Selector:                 service=coworking
+Type:                     LoadBalancer
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.100.47.10
+IPs:                      10.100.47.10
+LoadBalancer Ingress:     a447d5190ef2247fea150899b477ff1e-303440700.us-east-1.elb.amazonaws.com
+Port:                     5153  5153/TCP
+TargetPort:               5153/TCP
+NodePort:                 5153  32114/TCP
+Endpoints:                192.168.63.190:5153
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:
+  Type    Reason                Age   From                Message
+  ----    ------                ----  ----                -------
+  Normal  EnsuringLoadBalancer  25m   service-controller  Ensuring load balancer
+  Normal  EnsuredLoadBalancer   25m   service-controller  Ensured load balancer
