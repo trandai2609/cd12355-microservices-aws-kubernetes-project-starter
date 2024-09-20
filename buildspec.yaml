@@ -3,17 +3,23 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - echo Logging into ECR
-      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 625213618537.dkr.ecr.us-east-1.amazonaws.com
   build:
     commands:
-      - echo Starting build at `date`
-      - echo Building the Docker image...    
-      - cd analytics
-      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
-      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG      
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t coworking:$IMAGE_TAG .
+      - docker tag coworking:$IMAGE_TAG 625213618537.dkr.ecr.us-east-1.amazonaws.com/coworking:$IMAGE_TAG
   post_build:
     commands:
-      - echo Completed build at `date`
+      - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
+      - docker push 625213618537.dkr.ecr.us-east-1.amazonaws.com/coworking:$IMAGE_TAG
+      - echo Tagging the image as latest...
+      - docker tag 625213618537.dkr.ecr.us-east-1.amazonaws.com/coworking:$IMAGE_TAG 625213618537.dkr.ecr.us-east-1.amazonaws.com/coworking:latest
+      - docker push 625213618537.dkr.ecr.us-east-1.amazonaws.com/coworking:latest
+
+artifacts:
+  files:
+    - '**/*'
