@@ -54,3 +54,4 @@ spec:
               name: mysecret
               key: DB_PASSWORD
       restartPolicy: Always
+      
